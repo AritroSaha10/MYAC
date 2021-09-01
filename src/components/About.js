@@ -1,13 +1,30 @@
 import React from "react"
-import { Box, Text, Heading, Button } from "@chakra-ui/react"
+import { Box, Text, Heading, Button, Flex } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import igBlack from "../assets/ig-black.svg"
 import { ArrowBackIcon } from "@chakra-ui/icons"
 import { GatsbyImage } from "gatsby-plugin-image"
+import MotionBox from "./anim/MotionBox"
 
-const About = ({ name, position, bio, img, email, ig }) => (
-    <Box px="10vw" py="100px" backgroundColor="white">
-        <Box>
+import transition from "./anim/Transitions"
+
+const About = ({ name, position, bio, img, email, ig, animOffset }) => (
+    <MotionBox px="10vw" py="100px" backgroundColor="white" exitBeforeEnter>
+        <MotionBox
+            initial={{
+                x: "-40px",
+                opacity: 0
+            }}
+            animate={{
+                x: 0,
+                opacity: 1,
+                transition: { delay: animOffset + 0.6, ...transition }
+            }}
+            exit={{
+                x: "-40px",
+                opacity: 0,
+            }}
+        >
             <Link to="/team">
                 <Button
                     colorScheme="blue"
@@ -18,7 +35,8 @@ const About = ({ name, position, bio, img, email, ig }) => (
                     Back
                 </Button>
             </Link>
-        </Box>
+        </MotionBox>
+
         <Box
             display="flex"
             flexDirection={["column", null, "row"]}
@@ -26,36 +44,87 @@ const About = ({ name, position, bio, img, email, ig }) => (
             justifyContent="space-evenly"
             my="50px"
         >
-            <Box>
-                <Box
+            <Flex flexDirection="column" alignItems="center">
+                <MotionBox
                     height="200px"
                     width="200px"
                     minW="200px"
                     minH="200px"
-                    borderRadius="50%"
                     overflow="hidden"
                     boxShadow="lg"
-                >
 
+                    initial={{
+                        width: "300px",
+                        height: "300px",
+                        opacity: 0
+                    }}
+
+                    animate={{
+                        width: '200px',
+                        height: "200px",
+                        transition: { delay: animOffset, duration: 0.6, ...transition },
+                        opacity: 1
+                    }}
+
+                    exit={{
+                        width: "300px",
+                        height: "300px",
+                        opacity: 0,
+                        transition: { duration: 0.6, ...transition },
+                    }}
+                >
                     <GatsbyImage
                         image={img}
                         style={{ width: "100%", height: "100%" }}
                     />
-                </Box>
-                <Heading
-                    color="black.900"
-                    size="lg"
-                    textAlign="center"
-                    mt="25px"
+                </MotionBox>
+
+                <MotionBox
+                    initial={{
+                        x: "-50px",
+                        opacity: 0
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        transition: { delay: animOffset + 0.6, duration: 0.6, ...transition }
+                    }}
+                    exit={{
+                        x: "-50px",
+                        opacity: 0,
+                        transition: { duration: 0.6, ...transition }
+                    }}
                 >
-                    {name}
-                </Heading>
-                <Box
+                    <Heading
+                        color="black.900"
+                        size="lg"
+                        textAlign="center"
+                        mt="25px"
+                    >
+                        {name}
+                    </Heading>
+                </MotionBox>
+
+                <MotionBox
                     mt="20px"
                     display="flex"
                     flexDirection="row"
                     alignItems="center"
                     justifyContent="center"
+                    initial={{
+                        x: "-50px",
+                        opacity: 0
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        transition: { delay: animOffset + 0.7, ...transition }
+                    }}
+                    exit={{
+                        x: "-50px",
+                        opacity: 0,
+                        transition
+                    }}
                 >
                     <Box height="18px" width="18px">
                         <svg
@@ -90,28 +159,66 @@ const About = ({ name, position, bio, img, email, ig }) => (
                             <img src={igBlack} alt="Instagram" />
                         </Box>
                     </a>
-                </Box>
-            </Box>
+                </MotionBox>
+            </Flex>
             <Box
                 maxWidth="800px"
                 mt={["25px", "25px", "0px", "0px"]}
                 ml={[null, "25px", "25px"]}
             >
-                <Heading color="black.900" size="xl">
-                    {position}
-                </Heading>
-                <Box my="25px" borderTop="1px solid rgba(0, 0, 0, 0.1)"></Box>
-                <Text
-                    color="gray.500"
-                    fontWeight="400"
-                    fontSize="lg"
-                    lineHeight="1.65em"
+                <MotionBox
+                    initial={{
+                        x: "100px",
+                        opacity: 0
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        transition: { delay: animOffset + 0.6, ...transition }
+                    }}
+                    exit={{
+                        x: "100px",
+                        opacity: 0,
+                        transition
+                    }}
                 >
-                    {bio}
-                </Text>
+                    <Heading color="black.900" size="xl">
+                        {position}
+                    </Heading>
+
+
+                    <Box my="25px" borderTop="1px solid rgba(0, 0, 0, 0.1)"></Box>
+                </MotionBox>
+
+                <MotionBox
+                    initial={{
+                        x: "100px",
+                        opacity: 0
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        transition: { delay: animOffset + 0.7, ...transition }
+                    }}
+                    exit={{
+                        x: "100px",
+                        opacity: 0,
+                        transition
+                    }}
+                >
+                    <Text
+                        color="gray.500"
+                        fontWeight="400"
+                        fontSize="lg"
+                        lineHeight="1.65em"
+                    >
+                        {bio}
+                    </Text>
+                </MotionBox>
+
             </Box>
         </Box>
-    </Box>
+    </MotionBox>
 )
 
 export default About;

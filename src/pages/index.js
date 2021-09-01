@@ -12,9 +12,26 @@ import Connects from "../components/home/Connects"
 // import Slant from "../components/home/Slant"
 // import Anchor from "../components/home/Anchor"
 
+import MotionBox from "../components/anim/MotionBox"
+
 export default function Home() {
     return (
-        <Box backgroundColor="gray.800" overflow="hidden">
+        <MotionBox
+            backgroundColor="gray.800"
+            overflow="hidden"
+            initial={{
+                opacity: 0,
+                transition: { duration: 0.5 }
+            }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 0.5 }
+            }}
+            exit={{
+                opacity: 0,
+                transition: { delay: 0.2, duration: 0.5 }
+            }}
+        >
             <MySEO title="MYAC | Home" />
             <Navbar>
                 {/* <Anchor name="Objectives" url="#objectives" />
@@ -32,6 +49,6 @@ export default function Home() {
             /> */}
             <Connects />
             <Footer />
-        </Box>
+        </MotionBox>
     )
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { Box } from "@chakra-ui/react"
+import { Box, Flex, Spacer } from "@chakra-ui/react"
 
 import MySEO from "../../components/SEO"
 import Navbar from "../../components/Navbar"
@@ -9,6 +9,8 @@ import About from "../../components/About"
 import Footer from "../../components/Footer"
 
 import Page404 from "../404"
+import MotionBox from "../../components/anim/MotionBox"
+import transition from "../../components/anim/Transitions"
 
 const TeamMember = (props) => {
     // Only return an about page if data exists
@@ -16,19 +18,44 @@ const TeamMember = (props) => {
         const data = props.data.airtable.data;
 
         return (
-            <Box>
-                <MySEO title={`About | ${data.Name}`} />
-                <Navbar />
-                <About
-                    img={data.Avatar.localFiles[0].childImageSharp.gatsbyImageData}
-                    name={data.Name}
-                    position={data.Position}
-                    bio={data.Bio}
-                    email={data.Email}
-                    ig={data.Instagram_Link}
-                />
-                <Footer />
-            </Box>
+            <MotionBox
+                animate={{
+                    opacity: 1,
+                    transition: { duration: 0.4 }
+                }}
+                exit={{
+                    opacity: 0,
+                    transition: { duration: 0.5 }
+                }}
+            >
+                <Flex flexDirection="column" minH="100vh">
+                    <MySEO title={`About | ${data.Name}`} />
+                    <Navbar />
+                    <About
+                        img={data.Avatar.localFiles[0].childImageSharp.gatsbyImageData}
+                        name={data.Name}
+                        position={data.Position}
+                        bio={data.Bio}
+                        email={data.Email}
+                        ig={data.Instagram_Link}
+                        animOffset={0.4}
+                    />
+
+                    <Spacer />
+
+                    <MotionBox
+                        initial={{
+                            opacity: 0,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            transition: { delay: 0.5, duration: 0.6 }
+                        }}
+                    >
+                        <Footer />
+                    </MotionBox>
+                </Flex>
+            </MotionBox>
         )
     }
 

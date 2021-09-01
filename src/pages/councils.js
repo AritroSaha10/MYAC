@@ -8,6 +8,8 @@ import Footer from "../components/Footer"
 import Council from "../components/councils/CouncilCard"
 import Placeholder from "../components/councils/CouncilPlaceholder"
 
+import MotionBox from "../components/anim/MotionBox"
+
 const placeholders = Array(8).fill(<Placeholder />)
 
 const Events = () => {
@@ -61,7 +63,21 @@ const Events = () => {
     }
 
     return (
-        <Box backgroundColor="white">
+        <MotionBox
+            backgroundColor="white"
+            initial={{
+                opacity: 0,
+                transition: { duration: 0.5 }
+            }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 0.5 }
+            }}
+            exit={{
+                opacity: 0,
+                transition: { delay: 0.2, duration: 0.5 }
+            }}
+        >
             <MySEO title="MYAC | Events" />
             <Navbar />
             <Box px="10vw" py="100px">
@@ -80,7 +96,7 @@ const Events = () => {
             </Box>
 
             <Footer />
-        </Box>
+        </MotionBox>
     )
 }
 

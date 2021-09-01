@@ -1,3 +1,7 @@
 .active p {
     color: #60a1ec;
 }
+
+html {
+    scroll-behavior: smooth;
+}

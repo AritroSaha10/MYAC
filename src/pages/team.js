@@ -11,6 +11,9 @@ import Footer from "../components/Footer"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BgImage } from "gbimage-bridge"
 
+import MotionBox from "../components/anim/MotionBox"
+import transition from "../components/anim/Transitions"
+
 const Team = () => {
     const {
         team,
@@ -62,7 +65,21 @@ const Team = () => {
     );
 
     return (
-        <Box backgroundColor="white">
+        <MotionBox
+            backgroundColor="white"
+            initial={{
+                opacity: 0,
+                transition: { duration: 0.5 }
+            }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 0.5 }
+            }}
+            exit={{
+                opacity: 0,
+                transition: { duration: 0.5 }
+            }}
+        >
             <MySEO title="MYAC | Team" />
             <Navbar />
             <Box
@@ -113,13 +130,16 @@ const Team = () => {
                                     alignItems="center"
                                     width="100%"
                                 >
-                                    <Box
+                                    <MotionBox
                                         width={["80vw", null, "300px", null]}
                                         height={["80vw", null, "300px", null]}
                                         overflow="hidden"
-                                        transition="transform 0.5s, opacity 0.5s"
-                                        _hover={{
-                                            opacity: "0.85",
+                                        whileHover={{
+                                            scale: 1.05,
+                                            opacity: 0.95,
+                                            transition: {
+                                                duration: 0.2,
+                                            }
                                         }}
                                     >
                                         <button
@@ -129,34 +149,6 @@ const Team = () => {
                                                 height: "100%",
                                             }}
                                         >
-                                            {/*
-                                            <Img
-                                                fluid={
-                                                    person.img.childImageSharp
-                                                        .fluid
-                                                }
-                                                style={{
-                                                    width: "100%",
-                                                    height: "100%",
-                                                }}
-                                                alt={person.name}
-                                            />
-                                            
-
-                                            <StaticImage
-                                                src={person.img}
-                                                alt={person.name}
-                                                style={{
-                                                    width: "100%",
-                                                    height: "100%"
-                                                }}
-                                                placeholder="blurred"
-                                                layout="fixed"
-                                                height={700}
-                                                width={500}
-                                            />
-                                            */}
-
                                             <GatsbyImage
                                                 image={person.img}
                                                 alt={person.name}
@@ -166,7 +158,7 @@ const Team = () => {
                                                 }}
                                             />
                                         </button>
-                                    </Box>
+                                    </MotionBox>
                                     <Heading
                                         color="black.900"
                                         size="lg"
@@ -192,7 +184,7 @@ const Team = () => {
                 </Box>
             </Box>
             <Footer />
-        </Box>
+        </MotionBox >
     )
 }
 
