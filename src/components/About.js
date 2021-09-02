@@ -23,6 +23,7 @@ const About = ({ name, position, bio, img, email, ig, animOffset }) => (
             exit={{
                 x: "-40px",
                 opacity: 0,
+                transition: { delay: 0, duration: 0.6, ...transition }
             }}
         >
             <Link to="/team">
@@ -70,7 +71,7 @@ const About = ({ name, position, bio, img, email, ig, animOffset }) => (
                         width: "300px",
                         height: "300px",
                         opacity: 0,
-                        transition: { duration: 0.6, ...transition },
+                        transition: { delay: 0, duration: 0.4, ...transition },
                     }}
                 >
                     <GatsbyImage
@@ -92,7 +93,7 @@ const About = ({ name, position, bio, img, email, ig, animOffset }) => (
                     exit={{
                         x: "-50px",
                         opacity: 0,
-                        transition: { duration: 0.6, ...transition }
+                        transition: { delay: 0, duration: 0.4, ...transition }
                     }}
                 >
                     <Heading
@@ -123,7 +124,7 @@ const About = ({ name, position, bio, img, email, ig, animOffset }) => (
                     exit={{
                         x: "-50px",
                         opacity: 0,
-                        transition
+                        transition: { delay: 0, duration: 0.6, ...transition }
                     }}
                 >
                     <Box height="18px" width="18px">
@@ -179,7 +180,7 @@ const About = ({ name, position, bio, img, email, ig, animOffset }) => (
                     exit={{
                         x: "100px",
                         opacity: 0,
-                        transition
+                        transition: { delay: 0, duration: 0.6, ...transition }
                     }}
                 >
                     <Heading color="black.900" size="xl">
@@ -203,7 +204,7 @@ const About = ({ name, position, bio, img, email, ig, animOffset }) => (
                     exit={{
                         x: "100px",
                         opacity: 0,
-                        transition
+                        transition: { delay: 0, duration: 0.6, ...transition }
                     }}
                 >
                     <Text

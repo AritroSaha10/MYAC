@@ -11,6 +11,7 @@ import Event from "../components/events/EventCard"
 import Placeholder from "../components/events/EventPlaceholder"
 
 import MotionBox from "../components/anim/MotionBox"
+import transition from "../components/anim/Transitions"
 
 const placeholders = Array(8).fill(<Placeholder />)
 
@@ -81,7 +82,7 @@ const Events = () => {
                 transition: { delay: 0.2, duration: 0.5 }
             }}
         >
-            <MySEO title="MYAC | Events" />
+            <MySEO title="MYAC | Past Events" />
             <Navbar />
             <Flex px="10vw" py="100px" direction="column" alignItems="center">
                 <Box
@@ -94,16 +95,43 @@ const Events = () => {
                     gridColumnGap={5}
                     gridRowGap={5}
                 >
-                    {loading ? placeholders : events.map(event => (
-                        <Event
-                            title={event.title}
-                            desc={event.desc}
-                            status={event.status}
-                            img={event.img}
-                            link={event.link}
-                            date={event.date}
-                        />
-                    ))}
+                    {loading ? placeholders : events.map((event, i) => {
+                        return (
+                            <MotionBox
+                                initial={{
+                                    opacity: 0,
+                                    y: 60
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 0.5,
+                                        delay: i * 0.2,
+                                        ...{ transition }
+                                    }
+                                }}
+                                exit={{
+                                    opacity: 0,
+                                    y: 60,
+                                    transition: {
+                                        duration: 0.5,
+                                        delay: (i % 3) * 0.15, // Maximum 3 in a row, modulo done in order to speed up transitions
+                                        ...{ transition }
+                                    }
+                                }}
+                            >
+                                <Event
+                                    title={event.title}
+                                    desc={event.desc}
+                                    status={event.status}
+                                    img={event.img}
+                                    link={event.link}
+                                    date={event.date}
+                                />
+                            </MotionBox>
+                        )
+                    })}
 
                     {
                         !events.length &&
