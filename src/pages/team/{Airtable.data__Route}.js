@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { Box, Flex, Spacer } from "@chakra-ui/react"
+import { Flex, Spacer } from "@chakra-ui/react"
 
 import MySEO from "../../components/SEO"
 import Navbar from "../../components/Navbar"
@@ -10,7 +10,6 @@ import Footer from "../../components/Footer"
 
 import Page404 from "../404"
 import MotionBox from "../../components/anim/MotionBox"
-import transition from "../../components/anim/Transitions"
 
 const TeamMember = (props) => {
     // Only return an about page if data exists

@@ -12,7 +12,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BgImage } from "gbimage-bridge"
 
 import MotionBox from "../components/anim/MotionBox"
-import transition from "../components/anim/Transitions"
 
 const Team = () => {
     const {
