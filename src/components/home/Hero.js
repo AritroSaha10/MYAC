@@ -72,6 +72,7 @@ const Hero = () => {
                                 fontSize="18px"
                                 variant="solid"
                                 height="50px"
+                                data-test-id="cta-button"
                             >
                                 Meet The Team
                             </Button>

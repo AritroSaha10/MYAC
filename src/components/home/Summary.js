@@ -41,6 +41,7 @@ const Summary = () => {
                         href="/constitution.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
+                        data-test-id="constitution-button"
                     >
                         <Button
                             colorScheme="blue"
