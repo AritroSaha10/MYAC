@@ -33,6 +33,13 @@ module.exports = {
                             Avatar: `fileNode`
                         }
                     },
+                    {
+                        baseId: `appJ80ZqYPRkpXMCk`,
+                        tableName: `Gallery`,
+                        mapping: {
+                            Avatar: `fileNode`
+                        }
+                    },
                 ],
             },
         },
