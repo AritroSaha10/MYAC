@@ -37,7 +37,7 @@ module.exports = {
                         baseId: `appJ80ZqYPRkpXMCk`,
                         tableName: `Gallery`,
                         mapping: {
-                            Avatar: `fileNode`
+                            Photos: `fileNode`
                         }
                     },
                 ],
