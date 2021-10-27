@@ -17,10 +17,6 @@ export default function Gallery() {
                     404
                 </Heading>
 
-                <Heading color="gray.600" size="lg" lineHeight="1em">
-                    SUS
-                </Heading>
-
                 <Text fontSize="md">
                     Sorry, we can't find the page you're looking for. You can either return to the previous page, or visit the pages in the top bar.
                 </Text>
