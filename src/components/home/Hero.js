@@ -66,7 +66,7 @@ const Hero = () => {
                         and empower
                     </Heading>
                     <Box my={["25px", "50px"]}>
-                        <Link to="/team">
+                        <Link to="/gallery">
                             <Button
                                 colorScheme="blue"
                                 fontSize="18px"
@@ -74,7 +74,7 @@ const Hero = () => {
                                 height="50px"
                                 data-test-id="cta-button"
                             >
-                                Meet The Team
+                                View Gallery
                             </Button>
                         </Link>
                     </Box>
