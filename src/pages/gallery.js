@@ -85,7 +85,7 @@ const Events = () => {
                 <Flex px="10vw" py="100px" direction="column" alignItems="center">
                     <Box
                         display="grid"
-                        sx={{ columnCount: [1, 2, 3], columnGap: "4rem", rowGap: "4rem", gridAutoFlow: "row" }}
+                        sx={{ columnCount: [1, 2, 3], columnGap: "4rem", rowGap: "4rem", gridAutoFlow: "column" }}
                     >
                         {loading ? placeholders : events.map((event, i) => {
                             return (
