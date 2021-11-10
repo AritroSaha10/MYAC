@@ -88,13 +88,7 @@ const Events = () => {
                 <Flex px="10vw" py="100px" direction="column" alignItems="center">
                     <Box
                         display="grid"
-                        gridTemplateColumns={[
-                            "repeat(auto-fit, minmax(200px, 1fr))",
-                            "repeat(auto-fit, minmax(300px, 1fr))",
-                        ]}
-                        gridAutoFlow="row"
-                        gridColumnGap={5}
-                        gridRowGap={5}
+                        sx={{ columnCount: [2, 2, 3], columnGap: "4rem", rowGap: "4rem", gridAutoFlow: "row" }}
                     >
                         {loading ? placeholders : events.map((event, i) => {
                             return (

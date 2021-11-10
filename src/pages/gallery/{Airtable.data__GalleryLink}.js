@@ -27,15 +27,15 @@ const TeamMember = (props) => {
                 overflow="hidden"
                 initial={{
                     opacity: 0,
-                    transition: { duration: 0.5 }
+                    transition: { duration: 0.25 }
                 }}
                 animate={{
                     opacity: 1,
-                    transition: { duration: 0.5 }
+                    transition: { duration: 0.25 }
                 }}
                 exit={{
                     opacity: 0,
-                    transition: { delay: 0.2, duration: 0.5 }
+                    transition: { delay: 0.2, duration: 0.25 }
                 }}
             >
                 <MySEO title="MYAC | Events" />
@@ -159,7 +159,7 @@ export const query = graphql`
                     id
                     localFiles {
                         childImageSharp {
-                            gatsbyImageData(quality:100, placeholder:BLURRED)
+                            gatsbyImageData(quality:80, placeholder:BLURRED)
                         }
                     }
                 }

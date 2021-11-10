@@ -20,11 +20,11 @@ const TeamMember = (props) => {
             <MotionBox
                 animate={{
                     opacity: 1,
-                    transition: { duration: 0.4 }
+                    transition: { duration: 0.25 }
                 }}
                 exit={{
                     opacity: 0,
-                    transition: { duration: 0.5 }
+                    transition: { duration: 0.25 }
                 }}
             >
                 <Flex flexDirection="column" minH="100vh">
@@ -37,7 +37,7 @@ const TeamMember = (props) => {
                         bio={data.Bio}
                         email={data.Email}
                         ig={data.Instagram_Link}
-                        animOffset={0.4}
+                        animOffset={0.2}
                     />
 
                     <Spacer />

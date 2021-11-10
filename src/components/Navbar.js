@@ -18,22 +18,23 @@ import { Mobile, Desktop, IsMobile } from "./MediaQueries"
 import "../styles.css"
 import { StaticImage } from "gatsby-plugin-image"
 
-const NavItem = ({ name, url }) => (
-    <Link to={url} activeClassName="active">
-        <Box
-            color="black.900"
-            mx="20px"
-            my={IsMobile() ? "10px" : "0px"}
-            transition="all .25s ease-in-out"
-            _hover={{ color: "blue.300" }}
-        >
-            <Text fontWeight="500">{name}</Text>
-        </Box>
-    </Link>
-)
-
 const Navbar = ({ children }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const NavItem = ({ name, url }) => (
+        <Link to={url} activeClassName="active" onClick={onClose}>
+            <Box
+                color="black.900"
+                mx="20px"
+                my={IsMobile() ? "10px" : "0px"}
+                transition="all .25s ease-in-out"
+                _hover={{ color: "blue.300" }}
+            >
+                <Text fontWeight="500">{name}</Text>
+            </Box>
+        </Link>
+    )
+
     return (
         <>
             <Desktop>

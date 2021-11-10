@@ -7,10 +7,10 @@ import { getImage, StaticImage } from "gatsby-plugin-image"
 const Hero = () => {
     let { hero } = useStaticQuery(graphql`
         query {
-            hero: file(relativePath: { eq: "landscape.jpg" }) {
+            hero: file(relativePath: { eq: "everyone-edited-blur-cropped-2.png" }) {
                 childImageSharp {
                     gatsbyImageData (
-                        width: 2000,
+                        width: 4000,
                         quality: 100,
                         placeholder: BLURRED,
                         formats: [AUTO, WEBP, AVIF]

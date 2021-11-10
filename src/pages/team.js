@@ -19,10 +19,10 @@ const Team = () => {
         peopleData
     } = useStaticQuery(graphql`
         query {
-            team: file(relativePath: { eq: "landscape.jpg" }) {
+            team: file(relativePath: { eq: "team.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(
-                        width: 1920,
+                        width: 4000,
                         placeholder: BLURRED,
                         quality: 100
                     )
@@ -68,15 +68,15 @@ const Team = () => {
             backgroundColor="white"
             initial={{
                 opacity: 0,
-                transition: { duration: 0.5 }
+                transition: { duration: 0.25 }
             }}
             animate={{
                 opacity: 1,
-                transition: { duration: 0.5 }
+                transition: { duration: 0.25 }
             }}
             exit={{
                 opacity: 0,
-                transition: { duration: 0.5 }
+                transition: { duration: 0.25 }
             }}
         >
             <MySEO title="MYAC | Team" />

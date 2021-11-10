@@ -71,15 +71,15 @@ const Events = () => {
             backgroundColor="white"
             initial={{
                 opacity: 0,
-                transition: { duration: 0.5 }
+                transition: { duration: 0.25 }
             }}
             animate={{
                 opacity: 1,
-                transition: { duration: 0.5 }
+                transition: { duration: 0.25 }
             }}
             exit={{
                 opacity: 0,
-                transition: { delay: 0.2, duration: 0.5 }
+                transition: { duration: 0.25 }
             }}
         >
             <MySEO title="MYAC | Past Events" />
