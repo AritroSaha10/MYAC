@@ -10,6 +10,9 @@
 
 Website for the Mississauga Youth Action Committee. For more information visit [https://themyac-2022.netlify.app](https://themyac-2022.netlify.app/)
 
+# Notice
+As of June 2022, the website no longer uses this codebase. You can see the source code for the new site here: https://github.com/AritroSaha10/new-myac Due to this, this repo has been archived.
+
 ## Built With
 
 GatsbyJS
